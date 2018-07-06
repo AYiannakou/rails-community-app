@@ -1,0 +1,28 @@
+<%= form_for(@user) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+
+<div class="col-sm mb-2">
+  <label>Full name</label>
+  <%= f.text_field :name, class: 'form-control', placeholder: "Andrew Y" %>
+</div>
+
+<div class="col-sm mb-2">
+  <label>Email address</label>
+  <%= f.email_field :email, class: 'form-control', placeholder: "example@mail.com"%>
+</div>
+
+<div class="col-sm mb-2">
+  <label>Password</label>
+  <%= f.password_field :password, class: 'form-control', placeholder:"••••••" %>
+</div>
+
+<div class="col-sm mb-2">
+<label>Confirm new password</label>
+  <%= f.password_field :password_confirmation, class: 'form-control',  placeholder:"••••••" %>
+</div>
+
+<div class="col-sm mb-2">
+  <%= f.submit "Create my account", class: "btn btn-primary" %>
+</div>
+
+<% end %>

@@ -1,0 +1,33 @@
+<% provide(:title, 'Edit user') %>
+  <%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="container">
+    <div class="mx-auto col-sm-5">
+    <h3 class="mt-5 mb-4 text-center">Update your profile</h3>
+
+    <div class="form-group col-sm">
+      <label>Full name</label>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-sm">
+      <label>Email</label>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-sm">
+      <label>Password</label>
+      <%= f.text_field :password, class: 'form-control' %>
+    </div>
+
+    <div class=" col-sm">
+      <label>Confirm password</label>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+
+    <div class="col-sm">
+      <%= f.submit "Save changes", class: "btn btn-primary mt-3" %>
+    </div>
+  </div>
+
+<% end %>

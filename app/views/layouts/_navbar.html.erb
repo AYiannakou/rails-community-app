@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand font-weight-bold text-primary" href="/">Rails Community</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">
+          Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Help</a>
+      </li>
+    </ul>
+    <ul class="form-inline my-2 my-lg-0">
+      <%= render 'search/form_search' %>
+    </ul>
+    <% if logged_in? %>
+      <li class="dropdown nav-link">
+        <a href="#" class="dropdown-toggle pr-2" data-toggle="dropdown">
+          Account
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu navbar-dark">
+        <li><%= link_to "Profile", current_user %></li>
+        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+        <li class="divider"></li>
+        <li>
+          <%= link_to "Log out", logout_path, method: :delete %>
+        </li>
+      </ul>
+    </li>
+  <% else %>
+    <li class="nav-link"><%= link_to "Log in", login_path %></li>
+    <li class="nav-link"><%= link_to "Sign up", signup_path %></li>
+  <% end %>
+</div>
+</nav>

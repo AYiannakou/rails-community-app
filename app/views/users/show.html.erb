@@ -1,0 +1,30 @@
+<% provide(:title, @user.name) %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 pt-3">
+        <section class="user_info">
+          <h2>
+            <span>
+              <%= gravatar_for @user %>
+              <br>
+            </span>
+            <%= @user.name %>
+          </h2>
+        </section>
+      </div>
+      <div class="col-md-8 mt-4 mb-5">
+        <section class="micropost_form">
+          <h3 class="mb-4">
+            New post</h3>
+          <%= render 'shared/micropost_form' %>
+        </section>
+        <hr class="btn-primary mt-5">
+        <section>
+          <h3 class="mt-5 mb-4">
+            Your Posts
+          </h3>
+          <%= render 'shared/user_feed' %>
+        </section>
+      </div>
+    </div>
+  </div>

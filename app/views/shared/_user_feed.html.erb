@@ -1,0 +1,28 @@
+<% if @user.microposts.any? %>
+  <% @user.microposts.each do |micropost| %>
+
+    <div class="card mb-4 border border-dark">
+      <div class="card-header">
+        <h6 class="float-left">
+          <%= link_to "Show", micropost_path(micropost.id) %>
+          |
+          <%= link_to "Edit" %>
+          |
+          <%= link_to "Delete", micropost_path(micropost), method: :delete, data: { confirm: "You sure?" } %>
+        </h6>
+        <h6 class="float-right">
+          Posted
+          <%= time_ago_in_words(micropost.created_at) %>
+          ago.
+        </h6>
+        <h5 class="mt-5">
+          <%= micropost.subject %>
+        </h5>
+      </div>
+
+      <div class="card-body ">
+        <p class="card-text"><%= simple_format(micropost.content) %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>

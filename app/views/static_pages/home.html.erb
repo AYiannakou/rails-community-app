@@ -1,0 +1,19 @@
+<% if !logged_in? %>
+<div class="container">
+<header class="header-img mt-3 rounded">
+    <div class="row">
+      <div class="mx-auto col-md-5 pt-5 mt-5 text-center">
+        <h3  class="mt-5">Welcome to Rails Community World</h3>
+        <h5 class="mt-3"> Exchange your thoughts and knowledge with <br>
+             other users around the world to learn and <br> build your career faster. </h5>
+      </div>
+      <div class="mr-2 col-md-4">
+        <h3 class="mt-2 mb-2 text-center"> Register Now </h3>
+        <%= render :partial => "users/form", :locals => { :users => @user } %>
+      </div>
+    <% else %>
+    <% end %>
+  </header>
+  </div>
+  <%= render 'microposts/micropost' %>
+</div>

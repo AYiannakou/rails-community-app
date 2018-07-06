@@ -1,0 +1,14 @@
+<li id="answer-<%= answer.id %>">
+  <%= link_to gravatar_for(micropost.user, size: 50), answer.user %>
+  <span class="user"><%= link_to micropost.user.name, answer.user %></span>
+  <span class="content">
+    <%= answer.content %>
+    <%= image_tag micropost.picture.url if answer.picture? %>
+  </span>
+  <span class="timestamp">
+    Posted on <%= answer.created_at.strftime("%b %d, %Y") %>
+    <% if current_user?(answer.user) %>
+      <%= link_to "delete", answer, method: :delete, data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>
